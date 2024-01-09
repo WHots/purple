@@ -1,0 +1,9 @@
+C:\Users\William\IdeaProjects\purple\target\debug\deps\windows-3e71a5b79b7a3763.rmeta: C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\lib.rs C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows/mod.rs C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows\Win32\mod.rs C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows\Win32\UI\mod.rs C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows\Win32\UI\WindowsAndMessaging\mod.rs
+
+C:\Users\William\IdeaProjects\purple\target\debug\deps\windows-3e71a5b79b7a3763.d: C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\lib.rs C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows/mod.rs C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows\Win32\mod.rs C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows\Win32\UI\mod.rs C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows\Win32\UI\WindowsAndMessaging\mod.rs
+
+C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\lib.rs:
+C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows/mod.rs:
+C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows\Win32\mod.rs:
+C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows\Win32\UI\mod.rs:
+C:\Users\William\.cargo\registry\src\index.crates.io-6f17d22bba15001f\windows-0.52.0\src\Windows\Win32\UI\WindowsAndMessaging\mod.rs:
