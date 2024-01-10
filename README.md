@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Purple is a Rust library developed to empower the open-source version of [RosaryAV](https://github.com/WHots/RosaryAV). It provides a comprehensive set of file manipulation and quarantining functionalities, specifically tailored to enhance the capabilities of the open-source iteration of the RosaryAV project. This library, codenamed "Purple," is intended to serve as the core system for handling various file-related tasks within the context of RosaryAV.
+Purple is a Rust library developed to empower the open-source version of [RosaryAV](https://github.com/WHots/RosaryAV). It provides a comprehensive set of file manipulation and quarantining functionalities, specifically tailored to enhance the capabilities of the open-source iteration of the RosaryAV project. This library, codenamed "Purple" is intended to serve as the core system for handling various file-related tasks within the context of RosaryAV.
 
 ## Features
 
