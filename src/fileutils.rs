@@ -1,6 +1,14 @@
-use std::fs;
+//use std::ffi::CString;
+use std::fs::{File, self};
 use std::path::{Path, PathBuf};
-use std::io;
+use std::io::{Read};
+use std::collections::HashMap;
+//use std::ptr;
+
+
+//use windows::Win32::Storage::FileSystem::{FILE_SHARE_READ, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, CreateFileW, GetFileType, SetFileAttributesW};
+//use windows::Win32::Foundation::{CloseHandle, GENERIC_READ, PSID, INVALID_HANDLE_VALUE};
+//use windows::Win32::Security::{GetFileSecurityW, GetSecurityDescriptorOwner, SECURITY_DESCRIPTOR};
 
 use crate::genericutils::generate_random_string;
 
@@ -68,6 +76,7 @@ impl FileUtils {
     /// A concatenated string representing internal name, file size, and file extension.
     #[inline(always)]
     fn get_concatenate_file_tags(&self) -> String {
+
         let internal_name = self.get_internal_name().unwrap_or("");
         let file_size = self.get_size().map_or_else(|_| String::from(""), |size| size.to_string());
         let file_extension = self.get_file_extension().unwrap_or("");
@@ -85,6 +94,7 @@ impl FileUtils {
     ///
     /// A `Result` indicating success or failure of the file renaming operation.
     pub fn set_file_name(&self, target_dir: PathBuf) -> std::io::Result<()> {
+
         let rand_file_name = target_dir.join(generate_random_string(&self.get_concatenate_file_tags()));
         let new_path = format!("{}{}", self.file_path, &rand_file_name.display());
 
@@ -99,4 +109,48 @@ impl FileUtils {
     pub fn delete_file(&self) -> Result<(), std::io::Error> {
         fs::remove_file(&self.file_path).map(|_| ())
     }
+
+    /// Calculates the entropy of the file.
+    ///
+    /// # Returns
+    ///
+    /// The entropy of the file as a `f64` value.
+    pub fn get_entropy(&self) -> f64 {
+
+        let file_result = File::open(&self.file_path);
+
+        let mut file = match file_result 
+        {
+            Ok(file) => file,
+            Err(_) => 
+            {
+                return -1.0;
+            }
+        };
+
+        let mut buffer = [0u8; 1024 * 1024];
+        let mut total_bytes = 0;
+        let mut frequency_map = HashMap::new();
+
+        while let Ok(bytes_read) = file.read(&mut buffer) 
+        {
+            total_bytes += bytes_read;
+
+            for byte in buffer[..bytes_read].iter() 
+            {
+                *frequency_map.entry(*byte).or_insert(0) += 1;
+            }
+        }
+
+        let mut entropy = 0.0;
+
+        for (_byte, count) in frequency_map.iter() 
+        {
+            let probability = *count as f64 / total_bytes as f64;
+            entropy -= probability * probability.log2();
+        }
+
+        entropy
+    }
+
 }

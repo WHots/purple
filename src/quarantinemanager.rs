@@ -41,6 +41,7 @@ impl QuarantineManager {
     /// A `PathBuf` representing the path to the quarantine directory.
     #[inline(always)]
     fn quarantine_directory_path(&self) -> PathBuf {
+
         let program_data_dir = std::env::var("ProgramData").unwrap_or_else(|_| String::from("C:\\ProgramData"));
         Path::new(&program_data_dir).join("RosaryAV")
     }
@@ -77,11 +78,14 @@ impl QuarantineManager {
     pub fn move_to_quarantine(&self, file_path: &str) -> QuarantineResult {
 
         if !self.quarantine_directory_exists() {
-            match self.create_quarantine_directory() {
+            match self.create_quarantine_directory() 
+            {
                 Ok(_) => {}
-                Err(_) => {
+                Err(_) => 
+                {
                     let file_utils = crate::fileutils::FileUtils::new(file_path);
-                    if let Err(_) = file_utils.delete_file() {
+                    if let Err(_) = file_utils.delete_file() 
+                    {
                         return QuarantineResult::DeletedFailed;
                     }
                     return QuarantineResult::QuarantinedFailedDeleted;
@@ -90,7 +94,8 @@ impl QuarantineManager {
         }
 
         let file_utils = crate::fileutils::FileUtils::new(file_path).set_file_name(self.quarantine_directory_path());
-        match file_utils {
+        match file_utils 
+        {
             Ok(()) => QuarantineResult::Quarantined,
             Err(_) => QuarantineResult::TotalFailuare,
         }
